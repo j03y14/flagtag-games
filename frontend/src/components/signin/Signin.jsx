@@ -1,4 +1,13 @@
 import React from 'react';
+
+import styled from 'styled-components';
+
+const SocialLogin = styled.div`
+  display: block;
+  position: absolute;
+  left: 14%;
+  top: 35%;
+`;
 const Button = styled.button`
   margin: 10px;
   padding: 5px 16px;
@@ -15,9 +24,15 @@ export default function Signup() {
     // window.location.href = url;
     console.log('로그인');
   };
+
   return (
+    <SocialLogin>
       <Button type="button" onClick={clickLoginButton}>
         카카오 로그인
       </Button>
+      <Button type="button" onClick={clickLoginButton}>
+        구글 로그인
+      </Button>
+    </SocialLogin>
   );
 }
