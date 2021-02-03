@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-require('dotenv').config();
-
 const SocialLogin = styled.div`
   display: block;
   position: absolute;
