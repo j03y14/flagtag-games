@@ -4,4 +4,4 @@ const socialLogin = {
   kakao: kakaoLogin,
 };
 
-export default socialLogin;
+module.exports = socialLogin;
