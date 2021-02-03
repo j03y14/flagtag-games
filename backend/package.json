@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon ./src/app.js"
+    "dev": "nodemon ./src/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,13 +17,26 @@
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.11.14",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7"
+  },
+  "_moduleAliases": {
+    "@": "./src",
+    "@routes": "./src/routes",
+    "@models": "./src/models",
+    "@repositories": "./src/repositories",
+    "@services": "./src/services",
+    "@utils": "./src/utils",
+    "@constants": "./src/constants",
+    "@passport": "./src/passport"
   }
 }

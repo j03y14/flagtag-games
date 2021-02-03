@@ -1,6 +1,5 @@
 module.exports = {
   env: {
-    browser: true,
     commonjs: true,
     es2021: true,
   },
@@ -10,4 +9,19 @@ module.exports = {
   },
   ignorePatterns: ['node_modules/'],
   rules: {},
+  settings: {
+    'import/resolver': {
+      alias: [
+        ['@', './src'],
+        ['@routes', './src/routes'],
+        ['@models', './src/models'],
+        ['@repositories', './src/repositories'],
+        ['@services', './src/services'],
+        ['@utils', './src/utils'],
+        ['@constants', './src/constants'],
+        ['@passport', './src/passport'],
+      ],
+      extensions: ['.js'],
+    },
+  },
 };
