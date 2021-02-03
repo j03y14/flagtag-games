@@ -18,7 +18,7 @@ const Button = styled.button`
   font-weight: 600;
   background-color: #faea32;
 `;
-export default function Signup() {
+export default function Signin() {
   // const url = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.CLIENT_URL}/callback`;
   const clickLoginButton = () => {
     // window.location.href = url;
