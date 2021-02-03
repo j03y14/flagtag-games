@@ -19,7 +19,7 @@ module.exports = {
         ['@services', './src/services'],
         ['@utils', './src/utils'],
         ['@constants', './src/constants'],
-        ['@passport', './src/passport'],
+        ['@apis', './src/apis'],
       ],
       extensions: ['.js'],
     },
