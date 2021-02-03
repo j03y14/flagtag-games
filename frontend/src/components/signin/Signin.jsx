@@ -2,8 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const REST_API_KEY = 'f45308ab11b15215f3cf01b2f2773b18';
-const REDIRECT_URI = 'http://localhost:8080/callback';
+require('dotenv').config();
 
 const SocialLogin = styled.div`
   display: block;
@@ -22,7 +21,7 @@ const Button = styled.button`
   background-color: #faea32;
 `;
 export default function Signin() {
-  const url = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  const url = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REST_API_KEY}&redirect_uri=${process.env.REDIRECT_URI}&response_type=code`;
   const clickLoginButton = () => {
     window.location.href = url;
   };
