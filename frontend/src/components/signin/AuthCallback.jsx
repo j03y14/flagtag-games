@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import { oauthAPI } from '../../apis/api';
+import { oauthAPI } from '../../apis/auth';
 
 export default function AuthCallback() {
   const history = useHistory();

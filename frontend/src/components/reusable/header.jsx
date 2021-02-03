@@ -11,6 +11,6 @@ const FlagTagHeader = styled.div`
   justify-content: center;
 `;
 
-const Header = () => <FlagTagHeader className="header"> FLAGTAG GAMES </FlagTagHeader>;
+const Header = () => <FlagTagHeader> FLAGTAG GAMES </FlagTagHeader>;
 
 export default Header;
