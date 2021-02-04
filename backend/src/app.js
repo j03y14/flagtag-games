@@ -3,6 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+
 require('module-alias/register.js');
 require('dotenv').config();
 
