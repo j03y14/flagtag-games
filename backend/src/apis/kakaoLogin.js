@@ -16,7 +16,6 @@ const kakaoLoginApi = {
     };
 
     try {
-      console.log(kakaoClientSecret);
       const {
         data,
       } = await axios.post(
