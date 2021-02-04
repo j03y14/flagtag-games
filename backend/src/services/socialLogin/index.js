@@ -1,8 +1,10 @@
 const kakaoLogin = require('@services/socialLogin/kakao');
+const googleLogin = require('@services/socialLogin/google');
 const makeToken = require('@services/socialLogin/token');
 
 const getUserInfo = {
   kakao: kakaoLogin,
+  google: googleLogin,
 };
 
 const siginInOAuth = async (social, code) => {
