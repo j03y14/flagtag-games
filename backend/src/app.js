@@ -3,17 +3,27 @@ const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const mongoose = require('mongoose');
 
-mongoose
-  .connect(process.env.MONGODB_URL || '', { dbName: 'flagtag-games' })
-  .then(() => console.log('Successfully connected to mongodb'))
-  .catch((e) => console.error(e));
+const mongoose = require('mongoose');
 
 require('module-alias/register.js');
 require('dotenv').config();
 
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } = process.env;
+
 const router = require('@routes');
+
+mongoose
+  .connect(
+    `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:27017/${DB_DATABASE}?authSource=${DB_DATABASE}`,
+    {
+      useNewUrlParser: true,
+    },
+  )
+  .then(() => {
+    console.log('Successfully connected to mongodb');
+  })
+  .catch((e) => console.error(e));
 
 const app = express();
 
