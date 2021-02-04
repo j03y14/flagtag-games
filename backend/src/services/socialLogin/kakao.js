@@ -1,16 +1,29 @@
 const kakaoLoginApi = require('@apis/kakaoLogin');
+const userRepository = require('@repositories/user');
 
 const kakaoLogin = async (code) => {
   try {
     const accessToken = await kakaoLoginApi.getAccessToken(code);
-    const userInfo = await kakaoLoginApi.getUserInfo(accessToken);
-    console.log(userInfo);
+    const kakaoUserInfo = await kakaoLoginApi.getUserInfo(accessToken);
+    const user = await userRepository.findByEmail(kakaoUserInfo?.email);
+    const userInfo = {
+      email: kakaoUserInfo.email,
+      nickName: kakaoUserInfo.profile.nickname,
+      social: 'kakao',
+      levle: 0,
+    };
 
-    // TODO: 사용자가 DB에 없으면 추가한 후에 사용자 정보로 토큰을 만들어 반환해준다.
+    if (!user) {
+      const createdUser = await userRepository.create(userInfo);
+      userInfo.id = createdUser.id;
+    } else {
+      userInfo.id = user.id;
+    }
+
+    return { email: kakaoUserInfo.email, userInfo };
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
-
 module.exports = kakaoLogin;
