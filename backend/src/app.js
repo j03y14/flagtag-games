@@ -3,8 +3,17 @@ const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
+mongoose
+  .connect(process.env.MONGODB_URL || '', { dbName: 'flagtag-games' })
+  .then(() => console.log('Successfully connected to mongodb'))
+  .catch((e) => console.error(e));
+
+require('module-alias/register.js');
 require('dotenv').config();
+
+const router = require('@routes');
 
 const app = express();
 
@@ -14,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
-// app.use('/', router);
+app.use('/', router);
 
 app.use((req, res, next) => {
   next(createError(404));
