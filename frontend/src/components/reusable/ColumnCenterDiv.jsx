@@ -1,14 +1,11 @@
-import React from 'react';
-
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const ColumnCenterDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 50px;
+  position: relative;
 `;
 
-export default function ColumnCenterDiv() {
-  return <Wrapper />;
-}
+export default ColumnCenterDiv;
