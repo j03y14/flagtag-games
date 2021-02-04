@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Header from '../reusable/header';
+import Header from '../reusable/Header';
 import CreateGame from './CreateGame';
 import PublicGameSearch from './PublicGameSearch';
 import PrivateGameEnter from './PrivateGameEnter';
