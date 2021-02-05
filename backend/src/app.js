@@ -4,7 +4,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
+require('module-alias/register.js');
 require('dotenv').config();
+
+const router = require('@routes');
 
 const app = express();
 
@@ -14,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
-// app.use('/', router);
+app.use('/', router);
 
 app.use((req, res, next) => {
   next(createError(404));
