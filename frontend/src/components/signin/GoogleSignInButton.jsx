@@ -7,7 +7,7 @@ const GoogleSignInButton = () => {
   const scopeProfileUrl = process.env.GOOGLE_OAUTH_SCOPE_PROFILE;
   const scopeEmailUrl = process.env.GOOGLE_OAUTH_SCOPE_EMAIL;
   const clientId = process.env.GOOGLE_CLIENT_ID;
-  const redirectUri = process.env.REDIRECT_URI;
+  const redirectUri = `${process.env.REDIRECT_URI}/google`;
 
   const url = `${host}?scope=${scopeProfileUrl} ${scopeEmailUrl}&client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
   const onGoogleSignInButtonClicked = () => {

@@ -14,7 +14,18 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                modules: false,
+                targets: {
+                  browsers: ['> 1% in KR'],
+                },
+              },
+            ],
+            '@babel/preset-react',
+          ],
         },
       },
       {
@@ -33,6 +44,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
     port: 8080,

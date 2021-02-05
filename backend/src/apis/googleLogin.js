@@ -7,7 +7,7 @@ const googleSocialLoginHost = process.env.GOOGLE_LOGIN_HOST;
 const googleUserInfoHost = process.env.GOOGLE_GET_USER_INFO_HOST;
 const clientId = process.env.GOOGLE_CLIENT_ID;
 const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-const redirectUri = process.env.REDIRECT_URI;
+const redirectUri = `${process.env.REDIRECT_URI}/google`;
 
 const googleLoginApi = {
   async getAccessToken(code) {
