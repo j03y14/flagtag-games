@@ -7,10 +7,11 @@ const cors = require('cors');
 require('module-alias/register.js');
 require('dotenv').config();
 
+const db = require('@models/db');
 const router = require('@routes');
-
+console.log(db);
 const app = express();
-
+db();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

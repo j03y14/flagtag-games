@@ -1,21 +1,31 @@
 const kakaoLoginApi = require('@apis/kakaoLogin');
+const userRepository = require('@repositories/user');
 
 const kakaoLogin = async (code) => {
   try {
     const accessToken = await kakaoLoginApi.getAccessToken(code);
-    const userInfo = await kakaoLoginApi.getUserInfo(accessToken);
+    const kakaoUserInfo = await kakaoLoginApi.getUserInfo(accessToken);
+    const user = await userRepository.findByEmail(kakaoUserInfo?.email);
+    const userInfo = {
+      email: kakaoUserInfo.email,
+      nickName: kakaoUserInfo.profile.nickname,
+      social: 'kakao',
+      level: 0,
+    };
 
-    // DB에서 사용자 정보를 가져오는 작업이 필요할듯
-    // level 같은 거는 우리 서비스의 DB에만 있으니까
+    if (!user) {
+      const createdUser = await userRepository.create(userInfo);
+      userInfo.id = createdUser.id;
+    } else {
+      userInfo.id = user.id;
+    }
 
-    // 반환할 때 userInfo라고 되어 있는거를 DB에서 가져온 정보로 바꿔주어야함.
-    return { email: userInfo.email, userInfo };
+    return { email: kakaoUserInfo.email, userInfo };
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
-
 module.exports = kakaoLogin;
 
 // userInfo 속의 정보 구조
