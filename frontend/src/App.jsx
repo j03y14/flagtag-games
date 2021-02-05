@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import SigninPage from './pages/SinginPage';
 // import AuthCallback from './components/signin/AuthCallback';
+import MainPage from './pages/MainPage';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Switch>
         <Route path="/signin" component={SigninPage} />
         {/* <Route path="/callback" component={AuthCallback} /> */}
+        <Route path="/" component={MainPage} />
       </Switch>
     </Router>
   );
