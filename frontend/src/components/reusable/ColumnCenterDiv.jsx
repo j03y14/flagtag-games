@@ -6,6 +6,7 @@ const ColumnCenterDiv = styled.div`
   align-items: center;
   margin: 50px;
   position: relative;
+  width: 900px;
 `;
 
 export default ColumnCenterDiv;

@@ -5,8 +5,10 @@ import styled from 'styled-components';
 import SmallTitle from '../reusable/SmallTitle';
 import ColumnCenterDiv from '../reusable/ColumnCenterDiv';
 
-const PrivteGameCodeInput = styled.input`
-  width: 700px;
+const PrivteGameCodeInput = styled.input.attrs({
+  type: 'text',
+})`
+  width: 80%;
   height: 200px;
   border: none;
   background-color: white;
@@ -14,7 +16,10 @@ const PrivteGameCodeInput = styled.input`
   font-size: 100px;
   font-weight: 700;
 `;
-const PrivteGameEnterButton = styled.input`
+const PrivteGameEnterButton = styled.input.attrs({
+  type: 'button',
+  value: '입장',
+})`
   width: 150px;
   height: 100px;
   border: none;
@@ -23,16 +28,16 @@ const PrivteGameEnterButton = styled.input`
   font-size: 50px;
   font-weight: 700;
   position: absolute;
-  top: 330px;
-  right: 100px;
+  bottom: 6%;
+  right: 10%;
 `;
 
 export default function PrivteGameEnter() {
   return (
     <ColumnCenterDiv>
       <SmallTitle text="Private" />
-      <PrivteGameCodeInput type="text" />
-      <PrivteGameEnterButton type="button" value="입장" />
+      <PrivteGameCodeInput />
+      <PrivteGameEnterButton />
     </ColumnCenterDiv>
   );
 }
