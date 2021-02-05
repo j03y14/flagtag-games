@@ -5,7 +5,7 @@ const kakaoLogin = async (code) => {
   try {
     const accessToken = await kakaoLoginApi.getAccessToken(code);
     const userInfoFromKakao = await kakaoLoginApi.getUserInfo(accessToken);
-    const user = await userRepository.findByEmail(userInfoFromKakao.email);
+    const user = await userRepository.findByEmail(userInfoFromKakao.email, 'kakao');
     const defaultUserInfo = {
       email: userInfoFromKakao.email,
       nickName: userInfoFromKakao.profile.nickname,
