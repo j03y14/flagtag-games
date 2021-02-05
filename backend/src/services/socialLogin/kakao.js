@@ -10,7 +10,7 @@ const kakaoLogin = async (code) => {
       email: kakaoUserInfo.email,
       nickName: kakaoUserInfo.profile.nickname,
       social: 'kakao',
-      levle: 0,
+      level: 0,
     };
 
     if (!user) {
