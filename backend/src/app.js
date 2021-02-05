@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const db = require('@models/db');
 const router = require('@routes');
-console.log(db);
+
 const app = express();
 db();
 app.use(logger('dev'));
