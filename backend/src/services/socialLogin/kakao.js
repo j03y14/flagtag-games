@@ -20,7 +20,6 @@ const kakaoLogin = async (code) => {
     } else {
       defaultUserInfo.id = user[0].id;
     }
-    console.log('userInfo', defaultUserInfo);
     return { email: defaultUserInfo.email, userInfo: defaultUserInfo };
   } catch (error) {
     console.error(error);
