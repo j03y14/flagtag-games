@@ -6,7 +6,7 @@ const { GET_SOCIAL_TOKEN_FAILED, GET_SOCIAL_USER_INFO_FAILED } = require('@const
 const kakaoSocialLoginHost = process.env.KAKAO_LOGIN_HOST;
 const kakaoUserInfoHost = process.env.KAKAO_GET_USER_INFO_HOST;
 const kakaoClientId = process.env.KAKAO_CLIENT_ID;
-const kakaoRedirectUrl = process.env.KAKAO_REDIRECT_URI;
+const kakaoRedirectUrl = process.env.REDIRECT_URI;
 const kakaoClientSecret = process.env.KAKAO_CLIENT_SECRET;
 
 const kakaoLoginApi = {
