@@ -5,7 +5,7 @@ const kakaoLogin = async (code) => {
   try {
     const accessToken = await kakaoLoginApi.getAccessToken(code);
     const kakaoUserInfo = await kakaoLoginApi.getUserInfo(accessToken);
-    const user = await userRepository.findByEmail(kakaoUserInfo?.email);
+    const user = await userRepository.findByEmail(kakaoUserInfo.email);
     const userInfo = {
       email: kakaoUserInfo.email,
       nickName: kakaoUserInfo.profile.nickname,
@@ -15,6 +15,7 @@ const kakaoLogin = async (code) => {
 
     if (!user) {
       const createdUser = await userRepository.create(userInfo);
+      console.log(createdUser);
       userInfo.id = createdUser.id;
     } else {
       userInfo.id = user.id;
