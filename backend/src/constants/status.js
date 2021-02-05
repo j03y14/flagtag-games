@@ -4,6 +4,7 @@ const status = {
   GET_SOCIAL_USER_INFO_FAILED: 500,
   USER_CREATE_ERROR: 500,
   USER_FIND_BY_EMAIL_ERROR: 500,
+  SUCCESS: 200,
 };
 
 module.exports = status;
