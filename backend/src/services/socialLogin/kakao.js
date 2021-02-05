@@ -4,41 +4,27 @@ const userRepository = require('@repositories/user');
 const kakaoLogin = async (code) => {
   try {
     const accessToken = await kakaoLoginApi.getAccessToken(code);
-    const kakaoUserInfo = await kakaoLoginApi.getUserInfo(accessToken);
-    const user = await userRepository.findByEmail(kakaoUserInfo?.email);
-    const userInfo = {
-      email: kakaoUserInfo.email,
-      nickName: kakaoUserInfo.profile.nickname,
+    const userInfoFromKakao = await kakaoLoginApi.getUserInfo(accessToken);
+    const user = await userRepository.findByEmail(userInfoFromKakao.email);
+    const defaultUserInfo = {
+      email: userInfoFromKakao.email,
+      nickName: userInfoFromKakao.profile.nickname,
       social: 'kakao',
       level: 0,
     };
 
-    if (!user) {
-      const createdUser = await userRepository.create(userInfo);
-      userInfo.id = createdUser.id;
+    if (user.length === 0) {
+      console.log('no matched user');
+      const createdUser = await userRepository.create(defaultUserInfo);
+      defaultUserInfo.id = createdUser.id;
     } else {
-      userInfo.id = user.id;
+      defaultUserInfo.id = user[0].id;
     }
-
-    return { email: kakaoUserInfo.email, userInfo };
+    console.log('userInfo', defaultUserInfo);
+    return { email: defaultUserInfo.email, userInfo: defaultUserInfo };
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
 module.exports = kakaoLogin;
-
-// userInfo 속의 정보 구조
-// {
-//   profile_needs_agreement: false,
-//   profile: {
-//     nickname: '박재윤',
-//     thumbnail_image_url: 'http://k.kakaocdn.net/dn/brRSGg/btqOuwjXyJA/54d1IXFxUwolt7UPvNeQk0/img_110x110.jpg',
-//     profile_image_url: 'http://k.kakaocdn.net/dn/brRSGg/btqOuwjXyJA/54d1IXFxUwolt7UPvNeQk0/img_640x640.jpg'
-//   },
-//   has_email: true,
-//   email_needs_agreement: false,
-//   is_email_valid: true,
-//   is_email_verified: true,
-//   email: 'j03y14@gmail.com'
-// }

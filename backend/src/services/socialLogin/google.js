@@ -1,12 +1,27 @@
 const googleLoginApi = require('@apis/googleLogin');
+const userRepository = require('@repositories/user');
 
 const googleLogin = async (code) => {
   try {
     const accessToken = await googleLoginApi.getAccessToken(code);
-    const userInfo = await googleLoginApi.getUserInfo(accessToken);
-    console.log('google user info:', userInfo);
+    const userInfoFromGoogle = await googleLoginApi.getUserInfo(accessToken);
+    const user = await userRepository.findByEmail(userInfoFromGoogle.email);
+    const defaultUserInfo = {
+      email: userInfoFromGoogle.email,
+      nickName: userInfoFromGoogle.name,
+      social: 'kakao',
+      level: 0,
+    };
 
-    return { email: userInfo.email, userInfo };
+    if (user.length === 0) {
+      console.log('no matched user');
+      const createdUser = await userRepository.create(defaultUserInfo);
+      defaultUserInfo.id = createdUser.id;
+    } else {
+      defaultUserInfo.id = user[0].id;
+    }
+
+    return { email: defaultUserInfo.email, userInfo: defaultUserInfo };
   } catch (error) {
     console.error(error);
     throw error;
