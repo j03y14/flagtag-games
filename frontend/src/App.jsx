@@ -2,9 +2,9 @@ import React from 'react';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import SigninPage from './pages/SinginPage';
-import AuthCallbackPage from './pages/AuthCallbackPage';
-import MainPage from './pages/MainPage';
+import SigninPage from '@pages/SinginPage';
+import AuthCallbackPage from '@pages/AuthCallbackPage';
+import MainPage from '@pages/MainPage';
 
 const App = () => {
   return (
