@@ -58,7 +58,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public/'),
     port: 8080,
     historyApiFallback: true,
-    hotOnly: true,
+    hot: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
