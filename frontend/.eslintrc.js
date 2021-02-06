@@ -8,6 +8,7 @@ module.exports = {
   rules: {
     'no-console': 0,
     'react/prop-types': 0,
+    'react/jsx-one-expression-per-line': ['enabled', { allow: 'single-child' }],
   },
   settings: {
     'import/resolver': {
