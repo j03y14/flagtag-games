@@ -17,6 +17,18 @@ const oauthAPI = {
       throw error;
     }
   },
+  async authCheck() {
+    try {
+      const data = await axios.post(`${serverUri}/api/main/authCheck`, null, {
+        withCredentials: true,
+      });
+
+      return data.status;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  },
 };
 
 export default oauthAPI;

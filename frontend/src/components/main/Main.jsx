@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Header from '../reusable/Header';
+import FlagTagHeader from '../reusable/FlagtagHeader';
 import CreateGame from './CreateGame';
 import PublicGameSearch from './PublicGameSearch';
 import PrivateGameEnter from './PrivateGameEnter';
@@ -16,7 +16,7 @@ const MainWrapper = styled.div`
 export default function Signin() {
   return (
     <>
-      <Header />
+      <FlagTagHeader />
       <MainWrapper>
         <CreateGame />
         <PublicGameSearch />

@@ -5,11 +5,11 @@ const googleLogin = async (code) => {
   try {
     const accessToken = await googleLoginApi.getAccessToken(code);
     const userInfoFromGoogle = await googleLoginApi.getUserInfo(accessToken);
-    const user = await userRepository.findByEmail(userInfoFromGoogle.email);
+    const user = await userRepository.findByEmail(userInfoFromGoogle.email, 'google');
     const defaultUserInfo = {
       email: userInfoFromGoogle.email,
       nickName: userInfoFromGoogle.name,
-      social: 'kakao',
+      social: 'google',
       level: 0,
     };
 

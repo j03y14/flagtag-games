@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const FlagTagHeader = styled.div`
+const TitleDiv = styled.div`
   font-family: Major Mono Display;
   margin: 40px;
   font-size: 105px;
@@ -11,6 +11,6 @@ const FlagTagHeader = styled.div`
   justify-content: center;
 `;
 
-const Header = () => <FlagTagHeader> FLAGTAG GAMES </FlagTagHeader>;
+const FlagTagHeader = () => <TitleDiv> FLAGTAG GAMES </TitleDiv>;
 
-export default Header;
+export default FlagTagHeader;

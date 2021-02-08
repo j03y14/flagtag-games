@@ -11,7 +11,6 @@ const siginInOAuth = async (social, code) => {
   const { email, userInfo } = await getUserInfo[social](code);
   const accessToken = makeToken({ email, social });
 
-  console.log(accessToken);
   return { accessToken, userInfo };
 };
 
