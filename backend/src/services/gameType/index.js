@@ -5,6 +5,10 @@ const gameTypeService = {
     const gameTypes = await gameTypeRepository.getAll();
     return gameTypes;
   },
+  async getGameTypeById(id) {
+    const gameType = await gameTypeRepository.getById(id);
+    return gameType;
+  },
 };
 
 module.exports = gameTypeService;
