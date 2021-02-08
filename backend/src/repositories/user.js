@@ -5,8 +5,7 @@ const createError = require('http-errors');
 const userRepository = {
   create: async (payload) => {
     try {
-      const createdUser = await User.create(payload);
-      return createdUser;
+      return await User.create(payload);
     } catch (error) {
       console.error(error);
       throw createError(USER_CREATE_ERROR, 'user creation error');

@@ -25,7 +25,6 @@ const gameRoomRepository = {
   },
   delete: async (filter) => {
     try {
-      console.log('filter', filter);
       return await GameRoomModel.deleteOne({ _id: filter });
     } catch (error) {
       console.error(error);

@@ -28,7 +28,6 @@ const gameTypeController = {
   },
   async deleteGameRoom(req, res, next) {
     const { id } = req.params;
-    console.log('id:', req.params);
     try {
       await gameRoomService.deleteGameRoom(id);
       res.sendStatus(SUCCESS);
