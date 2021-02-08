@@ -2,7 +2,7 @@ const userRouter = require('@routes/user');
 const mainRouter = require('@routes/main');
 
 const express = require('express');
-const authCheck = require('../authCheck');
+const authCheck = require('../middlewares/authCheck');
 
 const rootRouter = express.Router();
 
