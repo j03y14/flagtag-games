@@ -6,6 +6,7 @@ import Section from '@/components/GameSelection/Section';
 const GameRuleContainer = styled.div`
   min-height: 300px;
   font-size: 40px;
+  font-weight: normal;
 `;
 
 const GameRuleSection = ({ rule }) => {
