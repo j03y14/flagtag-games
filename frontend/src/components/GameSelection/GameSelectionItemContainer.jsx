@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const GameSelectionItemContainer = styled.div`
   padding: 10px 10px;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
 `;
 
 export default GameSelectionItemContainer;
