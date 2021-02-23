@@ -38,7 +38,16 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ['.js', '.jsx', 'css', 'scss'] },
+  resolve: {
+    extensions: ['.js', '.jsx', 'css', 'scss'],
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+      '@apis': path.resolve(__dirname, 'src/apis/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@reusable': path.resolve(__dirname, 'src/reusable/'),
+      '@pages': path.resolve(__dirname, 'src/pages/'),
+    },
+  },
   output: {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/',
@@ -49,7 +58,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public/'),
     port: 8080,
     historyApiFallback: true,
-    hotOnly: true,
+    hot: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
