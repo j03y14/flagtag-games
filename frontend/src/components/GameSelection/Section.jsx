@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 import SectionTitle from '@/components/GameSelection/SectionTitle';
 
-const SectionDiv = styled.div`
+const SectionDiv = styled.section`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
   padding: 40px;
+  font-weight: 600;
 `;
 
 const Section = ({ title, children }) => {
