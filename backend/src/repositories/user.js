@@ -12,9 +12,9 @@ const userRepository = {
       throw createError(USER_CREATE_ERROR, 'user creation error');
     }
   },
-  findByEmail: async (userEmail) => {
+  findByEmail: async (userEmail, socialName) => {
     try {
-      return await User.find({ email: userEmail });
+      return await User.find({ email: userEmail, social: socialName });
     } catch (error) {
       console.error(error);
       throw createError(USER_FIND_BY_EMAIL_ERROR, 'user creation error');
