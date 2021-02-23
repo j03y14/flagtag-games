@@ -1,3 +1,5 @@
 import User from './user';
+import GameType from './gameType';
+import GameRoom from './gameroom';
 
-export default User;
+export { User, GameType, GameRoom };

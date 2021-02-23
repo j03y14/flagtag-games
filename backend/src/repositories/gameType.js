@@ -11,6 +11,15 @@ const gameTypeRepository = {
       throw createError(GAMETYPE_GET_ERROR, 'Get game types error');
     }
   },
+  getById: async (filter) => {
+    try {
+      const gameType = await GameTypeModel.find({ _id: filter });
+      return gameType;
+    } catch (error) {
+      console.error(error);
+      throw createError(GAMETYPE_GET_ERROR, 'Get game type by id error');
+    }
+  },
 };
 
 module.exports = gameTypeRepository;
