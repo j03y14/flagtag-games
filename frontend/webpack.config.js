@@ -29,12 +29,12 @@ module.exports = {
         },
       },
       {
-        test: /\\.css$/,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: ['@svgr/webpack', 'url-loader'],
       },
     ],
   },
@@ -46,6 +46,8 @@ module.exports = {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@reusable': path.resolve(__dirname, 'src/reusable/'),
       '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@config': path.resolve(__dirname, 'src/config/'),
+      '@assets': path.resolve(__dirname, 'assets/'),
     },
   },
   output: {

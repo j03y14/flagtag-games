@@ -8,6 +8,8 @@
       "@components/*": ["./src/components/*"],
       "@reusable/*": ["./src/components/reusable/*"],
       "@pages/*": ["./src/pages/*"],
+      "@config/*": ["./src/config/*"],
+      "@assets/*": ["./assets/*"],
     }
   }
 }
