@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Section from '@/components/GameSelection/Section';
 
 const GameRuleContainer = styled.div`
-  min-height: 300px;
+  min-height: 60px;
   font-size: 40px;
   font-weight: normal;
 `;

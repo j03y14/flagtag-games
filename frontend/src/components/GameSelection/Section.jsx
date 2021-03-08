@@ -8,7 +8,7 @@ const SectionDiv = styled.section`
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  padding: 40px;
+  padding: 20px;
   font-weight: 600;
 `;
 

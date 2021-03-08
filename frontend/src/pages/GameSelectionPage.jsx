@@ -6,23 +6,24 @@ import PageHeader from '@/components/GameSelection/PageHeader';
 import GameSelectionSection from '@components/GameSelection/GameSelectionSection';
 import GameRuleSection from '@components/GameSelection/GameRuleSection';
 import gameTypeApi from '@apis/gameType';
+import Loading from '@components/reusable/Loading';
 
 const SubmitButton = styled.button`
-  width: 200px;
-  height: 100px;
-  font-size: 40px;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
   background: #5db075;
-  border-radius: 8px;
+  border-radius: 11px;
   border: none;
-  font-weight: 700;
+  font-weight: bold;
   color: #ffffff;
+  margin: 10px;
 `;
 
 const GameSelectionPageDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   position: relative;
   width: 100%;
 `;

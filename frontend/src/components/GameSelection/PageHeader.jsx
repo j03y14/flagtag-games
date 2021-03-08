@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const GameSelectionHeaderDiv = styled.div`
   font-family: Major Mono Display;
   margin: 40px;
-  font-size: 70px;
+  font-size: 30px;
   font-weight: 600;
   color: #000000;
   display: flex;
