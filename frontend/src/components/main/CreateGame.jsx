@@ -2,9 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { ReactComponent as PlusIcon } from '@assets/icons/add.svg';
 import SmallTitle from '../reusable/SmallTitle';
 import ColumnCenterDiv from '../reusable/ColumnCenterDiv';
-import PlusIcon from '../../../assets/icons/add.svg';
 
 const CreateGameButton = styled.button`
   width: 80%;
