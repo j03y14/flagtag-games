@@ -10,6 +10,8 @@
       "@pages/*": ["./src/pages/*"],
       "@config/*": ["./src/config/*"],
       "@assets/*": ["./assets/*"],
+      "@hooks/*": ["./src/hooks/*"],
+
     }
   }
 }

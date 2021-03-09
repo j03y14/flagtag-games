@@ -8,6 +8,7 @@ module.exports = {
   rules: {
     'no-console': 0,
     'react/prop-types': 0,
+    'no-shadow': 0,
     'react/jsx-one-expression-per-line': [1, { allow: 'single-child' }],
   },
   settings: {
@@ -21,6 +22,7 @@ module.exports = {
           ['@pages', './src/pages'],
           ['@config', './src/config'],
           ['@assets', './assets'],
+          ['@hooks', './src/hooks'],
         ],
         extensions: ['.js', '.jsx'],
       },

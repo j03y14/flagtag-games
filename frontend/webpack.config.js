@@ -48,6 +48,7 @@ module.exports = {
       '@pages': path.resolve(__dirname, 'src/pages/'),
       '@config': path.resolve(__dirname, 'src/config/'),
       '@assets': path.resolve(__dirname, 'assets/'),
+      '@hooks': path.resolve(__dirname, 'src/hooks/'),
     },
   },
   output: {
