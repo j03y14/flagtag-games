@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, Suspense, lazy } from 'react';
 import styled from 'styled-components';
 
+import useSlider from '@hooks/useSlider';
+
 const GameItem = lazy(() => import('@components/GameSelection/GameItem'));
 
 const SliderDiv = styled.div`
@@ -8,71 +10,12 @@ const SliderDiv = styled.div`
   width: 100%;
 `;
 
-const GAMEITEM_WIDTH = 750;
-
 const GameSelectionSlider = ({ gameList, selectedGame, setSelectedGame }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null);
-
-  const translateSlide = (amount) => {
-    slideRef.current.style.transition = '';
-    slideRef.current.style.transform = `translateX(${amount}px)`;
-  };
-
-  const translateSlideWithAnimation = (amount) => {
-    slideRef.current.style.transition = 'all 0.3s ease-in-out';
-    slideRef.current.style.transform = `translateX(${amount}px)`;
-  };
-
-  const nextSlide = () => {
-    if (currentSlide >= gameList.length - 1) {
-      setCurrentSlide(0);
-    } else {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
-  const prevSlide = () => {
-    if (currentSlide === 0) {
-      setCurrentSlide(gameList.length - 1);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-  };
-
-  let touchStartX;
-
-  const onSliderTouchStart = (event) => {
-    const touchObject = event.changedTouches[0];
-    touchStartX = touchObject.pageX;
-  };
-
-  const onSliderTouchMove = (event) => {
-    const touchObject = event.changedTouches[0];
-    const touchMoveX = touchObject.pageX;
-
-    const diff = touchMoveX - touchStartX;
-
-    translateSlide(-GAMEITEM_WIDTH * currentSlide + diff);
-  };
-
-  const onSliderTouchEnd = (event) => {
-    const touchObject = event.changedTouches[0];
-    const touchMoveX = touchObject.pageX;
-
-    const diff = touchMoveX - touchStartX;
-    slideRef.current.style.transition = 'all 0.3s ease-in-out';
-    if (diff > GAMEITEM_WIDTH / 2) {
-      prevSlide();
-    } else if (diff < -GAMEITEM_WIDTH / 2) {
-      nextSlide();
-    } else {
-      translateSlideWithAnimation(-GAMEITEM_WIDTH * currentSlide);
-    }
-  };
-
-  useEffect(() => {
-    translateSlideWithAnimation(-GAMEITEM_WIDTH * currentSlide);
-  }, [currentSlide]);
+  const GAMEITEM_WIDTH = 320;
+  const { onSliderTouchStart, onSliderTouchMove, onSliderTouchEnd, slideRef } = useSlider({
+    itemWidth: GAMEITEM_WIDTH,
+    slideLength: gameList.length,
+  });
 
   return (
     <>
