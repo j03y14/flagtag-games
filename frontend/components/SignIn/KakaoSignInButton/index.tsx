@@ -20,7 +20,7 @@ const KaKaoSignInButton = () => {
     <SignInButton
       onClick={onKakaoSignInButtonClicked}
       backgroundImage={ButtonImageUrl}
-    ></SignInButton>
+    />
   );
 };
 
