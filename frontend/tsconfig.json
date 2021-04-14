@@ -76,7 +76,9 @@
       "@config/*": ["config/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@images/*": ["public/images/*"]
+      "@images/*": ["public/images/*"],
+      "@apis/*": ["apis/*"],
+      "@store/*": ["store/*"]
     }
   },
   "include": [
