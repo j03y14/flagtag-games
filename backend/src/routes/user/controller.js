@@ -13,7 +13,7 @@ const userController = {
 
       const { userInfo, accessToken } = await siginInOAuth(social, code);
 
-      res.cookie('accessToken', accessToken, { HttpOnly: true });
+      res.cookie('accessToken', accessToken, { httpOnly: true });
       res.status(SUCCESS).json({ userInfo });
     } catch (error) {
       next(error);
